@@ -1,0 +1,14 @@
+roslaunch kinova_bringup kinova_robot.launch kinova_robotType:=j2n4s300 use_urdf:=true
+roslaunch kinova_gazebo robot_launch_render.launch kinova_robotType:=j2n4s300
+cd jaco-gym
+python3 scripts/0_test_jaco_gazebo_topic_gym.py 
+python3 scripts/1_train_ppo2.py 
+python3 scripts/predict.py 
+python3 scripts/predict_real.py 
+python3 scripts/0_test_jaco_real.py 
+
+
+cd YOLOv8/
+python3 YOLO_predict.py 
+python3 YOLO_train.py 
+
